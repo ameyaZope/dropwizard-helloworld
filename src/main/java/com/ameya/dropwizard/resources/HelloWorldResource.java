@@ -3,6 +3,9 @@ package com.ameya.dropwizard.resources;
 
 import com.ameya.dropwizard.api.Saying;
 import com.codahale.metrics.annotation.Timed;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -12,6 +15,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
+@Api
 @Path("/hello-world")
 @Produces(MediaType.APPLICATION_JSON)
 public class HelloWorldResource {
@@ -25,6 +29,8 @@ public class HelloWorldResource {
         this.counter = new AtomicLong();
     }
 
+    @ApiParam
+    @ApiOperation(value = "Return hello world statement")
     @GET
     @Timed
     public Saying sayHello(@QueryParam("name") Optional<String> name) {

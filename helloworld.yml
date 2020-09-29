@@ -1,2 +1,16 @@
+logging:
+  level: INFO
+  loggers:
+    com.ameya.dropwizard: DEBUG
+
+
 template: Hello, %s!
 defaultName: Stranger
+
+swagger:
+  resourcePackage: com.ameya.dropwizard.resources
+  title:  Hello World Dropwizard Title here
+  description: Hello World Dropwizard project description here
+  schemes:
+    - http
+    - https

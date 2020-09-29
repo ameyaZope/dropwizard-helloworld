@@ -2,15 +2,20 @@ package com.ameya.dropwizard;
 
 import io.dropwizard.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
+
 import javax.validation.constraints.NotEmpty;
 
-public class helloworldConfiguration extends Configuration {
+public class HelloworldConfiguration extends Configuration {
     // TODO: implement service configuration
     @NotEmpty
     private String template;
 
     @NotEmpty
     private String defaultName = "Stranger";
+
+    @JsonProperty("swagger")
+    public SwaggerBundleConfiguration swaggerBundleConfiguration;
 
     @JsonProperty
     public String getTemplate() {
